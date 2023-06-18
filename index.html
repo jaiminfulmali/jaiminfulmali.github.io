@@ -5,21 +5,39 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <style>
     body {
-      background-color: #f2f2f2;
+      background-color: #fafafa;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      overflow: auto; /* Change 'hidden' to 'auto' */
+      position: relative;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure particles are rendered behind other elements */
+      pointer-events: none; /* Disable pointer events on the particles container */
+    }
+
+    #particles-js canvas {
+      pointer-events: auto; /* Enable pointer events on the particles canvas */
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
+      /* background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+      border-radius: 8px;
     }
 
     h1 {
       text-align: center;
       color: #333333;
+      margin-bottom: 30px;
     }
 
     h2 {
@@ -35,9 +53,11 @@
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
+  <div id="particles-js"></div>
   <div class="container">
+    
     <h1>Portfolio Projects</h1>
-
+    
     <h2>1) High-Availability Kubernetes Deployment on Google Cloud GKE for world's first Sound Wave Tattoo Application</h2>
     <p>Solely hosted and managed the Sound Wave Tattoo Application, a groundbreaking sound wave tattoo application, on Kubernetes using Google Cloud's GKE (Google Kubernetes Engine) service. Implemented a microservices-based architecture, including modules for image processing, audio upload, sound wave generation, and PDF generation. Leveraged Kubernetes' high availability and scaling capabilities to minimize downtime and ensure business continuity during critical outages, reducing downtime by 30%.</p>
 
@@ -86,5 +106,11 @@
     <p>Led the successful migration of various AWS services, including EC2, RDS, Route53, AWS VPC, and AWS CodePipeline, to their respective counterparts in the Google Cloud Platform (GCP). Implemented a multi-environment setup, comprising Production, Staging, and Development environments, using GCP services such as Cloud GPU, Cloud SQL, Cloud DNS, GCP VPC, and GCP CodeBuild. This migration not only ensured a smooth transition but also resulted in substantial cost optimization for the infrastructure.</p>
 
    </div>
+  <script src="particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('Particles.js loaded!');
+    });
+  </script>
 </body>
 </html>
